@@ -3,6 +3,7 @@ const app = new Vue({
     data: {
         counter: 0,
         message: "",
+        search: "",
         contacts: [
             {
                 name: 'Michele',
@@ -113,8 +114,20 @@ const app = new Vue({
             }, 2000)
         },
 
-        //https://codepen.io/AndrewThian/pen/QdeOVa
-        //this permit to filter element
+
 
     },
+
+    computed: {
+        filteredList() {
+            return this.contacts.filter(contact => {
+                return contact.name.toLowerCase().includes(this.search.toLowerCase())
+            })
+        }
+        /* con questa funzione va a prendere la mia lista e va a filtrare la lista cercando nel nome se ce il valore che
+        ho inserito nell'input con valore search e se il nome comprende quel valore lo inserisce nel array e stampa 
+        questo nuovo array */
+        //https://codepen.io/AndrewThian/pen/QdeOVa
+        //this permit to filter element
+    }
 })

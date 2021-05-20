@@ -48,13 +48,29 @@
                 <div class="ricerca">
                     <div class="ricerca_box">
                         <i class="fas fa-search"></i>
-                        <input type="text" name="" id="" placeholder="Cerca o inizia una nuova chat">
+                        <input type="text" v-model="search" placeholder="Cerca o inizia una nuova chat">
                     </div>
                 </div>
 
                 <!-- Sezione Lista Utenti -->
                 <div class="lista_utenti">
-                    <div class="linea_utente" v-for="(utente, index) in contacts" @click="counter = index">
+                    <!--questa sezione stampa la lista degli utenti in modo fisso quindi se vado a cercare tra i contatti
+                    non succede nulla 
+                        
+                        <div class="linea_utente" v-for="(utente, index) in contacts" @click="counter = index">
+                        <img :src="'./assets/img/avatar'+ utente.avatar +'.jpg'" alt="">
+                        <div class="linea_utente_text">
+                            <span>{{ utente.name }}</span>
+                            <span>{{contacts[index].messages[contacts[index].messages.length-1].text}}</span>
+                        </div>
+                        <span>data</span>
+                    </div> -->
+
+
+                    <!-- Con questa parte avdo a stampare la lista "filteredList" che se non ho inserito alcun vore nella casella di ricerca
+                    mi stampa tutta la lista invece se vado ad inserire un valore nel input mi va a vedere quali elementi della lista hanno quel avlore
+                    e mi va a stampare solo quei elementi -->
+                    <div class="linea_utente" v-for="(utente, index) in filteredList" @click="counter = index">
                         <img :src="'./assets/img/avatar'+ utente.avatar +'.jpg'" alt="">
                         <div class="linea_utente_text">
                             <span>{{ utente.name }}</span>
@@ -62,6 +78,7 @@
                         </div>
                         <span>data</span>
                     </div>
+
 
                 </div>
             </div>
