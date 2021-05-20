@@ -68,16 +68,69 @@
 
 
 /********** Notifiche **********/
+.notifiche{
+    display: flex;
+    align-items: center;
+    /* justify-content: space-between; */
+    background-color: #8EDAFC;
+}
+.icon_not{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+    margin-left: 2rem;
+}
 
+.icon_not i{
+    font-size: 1.8rem;
+    color: #8EDAFC;
+}
 
+.text_not{
+    display: flex;
+    flex-direction: column;
+    padding-left: 1rem;
+}
+
+.text_not span{
+    font-size: 1.4rem;
+
+}
 
 /********** Ricerca **********/
 
 .ricerca{
     height: 6%;
     width: 100%;
-    background-color: magenta;
+    background-color: #FAFAFA;
+    padding: 5px;
 }
+
+.ricerca_box{
+    height: 100%;
+    width: 100%;
+    background-color: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.ricerca_box i{
+    width: 9%;
+    text-align: center;
+    color: #B6B9BB;
+}
+
+.ricerca_box input{
+    height: 100%;
+    width: 90%;
+    border: none;
+    outline: none;
+    font-size: 1.2rem;
+}
+
+
 
 
 
