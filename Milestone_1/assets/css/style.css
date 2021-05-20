@@ -30,7 +30,7 @@
 .navigazione{
     width: 30%;
     height: 100%;
-    background-color: lightseagreen;
+
 }
 
 /********** Utente **********/
@@ -139,7 +139,40 @@
 .lista_utenti{
     height: 70%;
     width: 100%;
-    background-color: maroon;
+    background-color: white;
+}
+.linea_utente{
+    height: 15%;
+    padding: 0.5rem 1rem;
+    display: flex;
+    position: relative;
+    border-bottom: 1px solid lightgrey;
+}
+.linea_utente img{
+    height: 100%;
+    border-radius: 50%;
+    padding: 0 1rem;
+}
+.linea_utente_text{
+    padding-top: 0.5rem;
+}
+.linea_utente_text span{
+    display: block;
+}
+.linea_utente_text span:first-child{
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+.linea_utente_text span:nth-child(2){
+    color: #B6B9C4;
+}
+
+.linea_utente > span{
+    font-size: 1rem;
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    color: #B6B9C4;
 }
 
 
@@ -155,14 +188,122 @@
     background-color: lightslategray;
 }
 
+/********** Utente chat **********/
+
 .utente_chat, .box_testo{
     height: 12%;
     width: 100%;
-    background-color: mediumaquamarine;
 }
+.utente_chat{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #EAEAEA;
+}
+.utente_chat img{
+    height: 80%;
+    border-radius: 50%;
+    padding: 0 1rem;
+}
+
+.chat_dettagli{
+    text-align: left;
+    width: 75%;
+}
+.chat_dettagli span{
+    display: block;
+}
+.chat_dettagli span:first-child{
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+.chat_dettagli span:nth-child(2){
+    font-size: 0.9rem;
+}
+.icone_utente_chat{
+    margin-right: 1rem;
+}
+.icone_utente_chat i{
+font-size: 2rem;
+padding: 0 0.5rem;
+color: #B1B1B1;
+}
+
+/********** Chat **********/
 
 .messaggi_chat{
     width: 100%;
     height: 76%;
-    background-color: midnightblue;
+    background-image: url(../img/mine.jpg);
+    padding: 2rem;
+
 }
+
+.box_mesaggio{
+    height: 15%;
+    position: relative;
+    margin: 1rem 0;
+   
+}
+
+.sent{
+    height: 100%;
+    background-color: #D5F9BA ;
+    position: absolute;
+    right: 0;
+    border-radius: 10px;
+    display: flex;
+}
+
+.sent span:first-child,
+.received span:first-child{
+    font-size: 1.2rem;
+    align-self: center;
+    justify-self: center;
+    padding: 1rem 1rem 1.5rem 1rem;
+}
+.sent span:nth-child(2),
+.received span:nth-child(2){
+    position: absolute;
+    right: 5px;
+    bottom: 0;
+    font-size: 0.7rem;
+    padding: 0.3rem;
+}
+
+.received{
+    height: 100%;
+    background-color: #FFFFFF ;
+    position: absolute;
+    left: 0;
+    border-radius: 10px;
+    display: flex;
+}
+
+
+
+
+
+/********** Box input text**********/
+.box_testo{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #F3EEEA;
+}
+
+.box_testo i{
+    font-size: 3rem;
+    color: #6B7376;
+}
+
+.box_testo input {
+    width: 85%;
+    height: 70% ;
+    border-radius: 10px;
+    border: none;
+    outline: none; 
+    font-size: 2rem;
+    padding: 0.5rem;
+}
+

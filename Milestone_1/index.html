@@ -53,12 +53,72 @@
                 </div>
 
                 <!-- Sezione Lista Utenti -->
-                <div class="lista_utenti"></div>
+                <div class="lista_utenti">
+
+                    <div class="linea_utente">
+                        <img src="./assets/img/avatar_1.jpg" alt="">
+                        <div class="linea_utente_text">
+                            <span>Michele</span>
+                            <span>ok...</span>
+                        </div>
+                        <span>data</span>
+                    </div>
+                    <div class="linea_utente" v-for="(utente, index) in contacts">
+                        <img :src="'./assets/img/avatar'+ utente.avatar +'.jpg'" alt="">
+                        <div class="linea_utente_text">
+                            <span>{{ utente.name }}</span>
+                            <span>ok...</span>
+                        </div>
+                        <span>data</span>
+                    </div>
+
+                </div>
             </div>
+
+            <!-- Sezione Chat -->
             <div class="chat">
-                <div class="utente_chat"></div>
-                <div class="messaggi_chat"></div>
-                <div class="box_testo"></div>
+                <!-- dettagli utente chat -->
+                <div class="utente_chat">
+                    <img src="./assets/img/avatar_1.jpg" alt="">
+                    <div class="chat_dettagli">
+                        <span>Michele</span>
+                        <span>Ultimo accesso oggi alle</span>
+                    </div>
+                    <div class="icone_utente_chat">
+                        <i class="fas fa-search"></i>
+                        <i class="fas fa-paperclip"></i>
+                        <i class="fas fa-ellipsis-v"></i>
+                    </div>
+                </div>
+
+
+                <!-- Box chat -->
+                <div class="messaggi_chat">
+                    <div class="box_mesaggio">
+                        <div class="sent">
+                            <span>Messagio molto piu lungo</span>
+                            <span>10/01/2020 15:50:00</span>
+                        </div>
+                    </div>
+
+                    <div class="box_mesaggio">
+                        <div class="received">
+                            <span>Messagio molto piu lungo</span>
+                            <span>10/01/2020 15:50:00</span>
+                        </div>
+                    </div>
+
+
+
+                    <!-- <div class="received">ciao received</div> -->
+                </div>
+
+                <!-- Box input testo -->
+                <div class="box_testo">
+                    <i class="far fa-smile"></i>
+                    <input type="text" name="" id="">
+                    <i class="fas fa-microphone"></i>
+                </div>
             </div>
         </div>
 
