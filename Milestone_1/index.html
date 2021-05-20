@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boolzapp</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+    <!-- CSS -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body>
+    <div id="app">
+        <div class="container">
+            <div class="navigazione">
+
+                <!-- Sezione Utente -->
+                <div class="utente">
+                    <div class="utente_left">
+                        <img :src="img_utente" alt="">
+                        <span>Nome Utente</span>
+                    </div>
+                    <div class="utente_right">
+                        <i class="fas fa-circle-notch"></i>
+                        <i class="fas fa-comment-alt"></i>
+                        <i class="fas fa-ellipsis-v"></i>
+                    </div>
+
+
+                </div>
+
+                <!-- Sezione Notifiche -->
+                <div class="notifiche"></div>
+
+                <!-- Sezione Ricerca -->
+                <div class="ricerca"></div>
+
+                <!-- Sezione Lista Utenti -->
+                <div class="lista_utenti"></div>
+            </div>
+            <div class="chat">
+                <div class="utente_chat"></div>
+                <div class="messaggi_chat"></div>
+                <div class="box_testo"></div>
+            </div>
+        </div>
+
+
+
+
+    </div>
+
+
+
+
+    <!-- Vue.js -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <!-- Main js -->
+    <script src="./assets/js/main.js"></script>
+</body>
+
+</html>

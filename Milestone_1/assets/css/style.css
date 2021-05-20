@@ -1,0 +1,115 @@
+
+/*************** Common ***************/
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+/*************** Main ***************/
+
+#app{
+    background-color: #009688;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    width: 80%;
+    height: 90%;
+    display: flex;
+}
+
+
+/*************** Navigazione ***************/
+
+.navigazione{
+    width: 30%;
+    height: 100%;
+    background-color: lightseagreen;
+}
+
+/********** Utente **********/
+
+.utente, .notifiche{
+    height: 12%;
+    width: 100%;
+
+}
+.utente{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #EAEAEA;
+}
+.utente_left{
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+.utente_left img{
+    height: 80%;
+    border-radius: 50%;
+    padding: 0 1rem;
+}
+.utente_left span{
+    font-size: 1.5rem;
+}
+
+.utente_right i{
+    font-size: 2rem;
+    margin: 0 0.8rem;
+    color: #B1B1B1;
+}
+
+
+/********** Notifiche **********/
+
+
+
+/********** Ricerca **********/
+
+.ricerca{
+    height: 6%;
+    width: 100%;
+    background-color: magenta;
+}
+
+
+
+/********** Lista Utenti **********/
+
+.lista_utenti{
+    height: 70%;
+    width: 100%;
+    background-color: maroon;
+}
+
+
+
+
+
+/*************** Chat ***************/
+
+
+.chat{
+    width: 70%;
+    height: 100%;
+    background-color: lightslategray;
+}
+
+.utente_chat, .box_testo{
+    height: 12%;
+    width: 100%;
+    background-color: mediumaquamarine;
+}
+
+.messaggi_chat{
+    width: 100%;
+    height: 76%;
+    background-color: midnightblue;
+}
