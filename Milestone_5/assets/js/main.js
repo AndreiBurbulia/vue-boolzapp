@@ -4,7 +4,8 @@ const app = new Vue({
         counter: 0,
         message: "",
         search: "",
-        prova: "none",
+        indexMesagge: "0",
+        visibilityInfoMessage: "none",
         contacts: [
             {
                 name: 'Michele',
@@ -83,7 +84,7 @@ const app = new Vue({
                 ],
             },
             {
-                name: 'Luisa',
+                name: 'Luis',
                 avatar: '_4',
                 visible: true,
                 messages: [
@@ -101,6 +102,113 @@ const app = new Vue({
                     }
                 ],
             },
+            {
+                name: 'Giorgio',
+                avatar: '_5',
+                visible: true,
+                messages: [
+                    {
+                        date: '28/03/2020 10:10:40',
+                        text: 'Andrei va in montagna questo fine settimana',
+                        status: 'received',
+                        visibility: "none"
+                    },
+                    {
+                        date: '28/03/2020 10:20:10',
+                        text: 'Sicuro di non aver sbagliato chat?',
+                        status: 'sent',
+                        visibility: "none"
+                    },
+                    {
+                        date: '28/03/2020 16:15:22',
+                        text: 'Nono, vuoi venire anche te?',
+                        status: 'received',
+                        visibility: "none"
+                    },
+                    {
+                        date: '28/03/2020 17:20:10',
+                        text: 'Purtroppo sono gia impegnato',
+                        status: 'sent',
+                        visibility: "none"
+                    },
+                ],
+            },
+            {
+                name: 'Giulia',
+                avatar: '_6',
+                visible: true,
+                messages: [
+                    {
+                        date: '28/03/2020 10:10:40',
+                        text: 'Hai sentito la novita?',
+                        status: 'received',
+                        visibility: "none"
+                    },
+                    {
+                        date: '28/03/2020 10:20:10',
+                        text: 'No, raccontami subito!',
+                        status: 'sent',
+                        visibility: "none"
+                    },
+                    {
+                        date: '28/03/2020 16:15:22',
+                        text: 'Appena ci vediamo ti racconto tutto!',
+                        status: 'received',
+                        visibility: "none"
+                    }
+                ],
+            },
+            {
+                name: 'Genoveffo',
+                avatar: '_7',
+                visible: true,
+                messages: [
+                    {
+                        date: '28/03/2020 10:10:40',
+                        text: 'Hai visto la partita?',
+                        status: 'received',
+                        visibility: "none"
+                    },
+                    {
+                        date: '28/03/2020 10:20:10',
+                        text: 'Si, che partita!',
+                        status: 'sent',
+                        visibility: "none"
+                    },
+                    {
+                        date: '28/03/2020 16:15:22',
+                        text: 'Veramente un bel gioco!',
+                        status: 'received',
+                        visibility: "none"
+                    }
+                ],
+            },
+            {
+                name: 'Thor',
+                avatar: '_8',
+                visible: true,
+                messages: [
+                    {
+                        date: '28/03/2020 10:10:40',
+                        text: 'Io sono il Dio del Tuono!',
+                        status: 'received',
+                        visibility: "none"
+                    },
+                    {
+                        date: '28/03/2020 10:20:10',
+                        text: 'E io sono il Dio della programmazione!',
+                        status: 'sent',
+                        visibility: "none"
+                    },
+                    {
+                        date: '28/03/2020 16:15:22',
+                        text: 'Questa è Guerra!',
+                        status: 'received',
+                        visibility: "none"
+                    }
+                ],
+            },
+
         ],
         img_utente: "./assets/img/avatar_io.jpg",
     },
@@ -119,7 +227,7 @@ const app = new Vue({
 
             setTimeout(() => {
                 automaticMessage = {
-                    text: "Solo io ti rispondo subito",
+                    text: "Solo io ti rispondo subito,  " + this.contacts[this.counter].name,
                     date: dayjs().format("DD/MM/YYYY  HH:mm:ss"),
                     status: "received",
                     visibility: "none"
@@ -146,6 +254,16 @@ const app = new Vue({
             } else {
                 this.contacts[this.counter].messages[index].visibility = "none";
             }
+        },
+
+        infoMessage(index) {
+            this.indexMesagge = index;
+            this.visibilityInfoMessage = "block";
+            this.contacts[this.counter].messages[index].visibility = "none";
+
+        },
+        closeInfoMessage() {
+            this.visibilityInfoMessage = "none";
         },
 
 

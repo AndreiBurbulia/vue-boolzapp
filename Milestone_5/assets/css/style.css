@@ -11,18 +11,19 @@
 /*************** Main ***************/
 
 #app{
-    background-color: #009688;
     width: 100%;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    background-image: linear-gradient(to bottom, #009688 0px, #009688 148px, #d3d3d3 148px, #d3d3d3 100%);
 }
 
 .container{
     width: 80%;
     height: 90%;
     display: flex;
+    min-width: 1440px;
 }
 
 
@@ -144,7 +145,7 @@
     overflow-y: auto;
 }
 .linea_utente{
-    height: 15%;
+    height: 90px;
     padding: 0.5rem 1rem;
     display: flex;
     position: relative;
@@ -210,7 +211,7 @@
 
 .chat_dettagli{
     text-align: left;
-    width: 75%;
+    width: 70%;
 }
 .chat_dettagli span{
     display: block;
@@ -239,10 +240,57 @@ color: #B1B1B1;
     background-image: url(../img/mine.jpg);
     padding: 2rem;
     overflow-y: auto;
+    position: relative;
 }
 
+.tutte_info{
+    background-color: rgba(0, 0, 0, 0.6);
+    height: 90%;
+    width: 94%;
+    margin: auto;
+    position: absolute;
+    z-index: 10;
+    display: flex;
+    padding: 2rem;
+}
+.tutte_info > div{
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 2rem;
+    margin: 1rem 0;
+    background-color: rgba(255, 255, 255, 0.8);
+
+
+}
+.tutte_info h4{
+    font-size: 1.2rem;
+    padding-bottom: 1rem;
+}
+.tutte_info p{
+    padding-left: 3rem;
+}
+
+.tutte_info > i:first-child{
+        right: 15px;
+    top: 10px;
+    font-size: 2rem;
+    position: absolute;
+    color: red;
+}
+.tutte_info > div>i{
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+
+
+
+
+
 .box_mesaggio{
-    height: 15%;
+    height: 100px;
     position: relative;
     margin: 1rem 0;
    
@@ -258,11 +306,13 @@ color: #B1B1B1;
     position: absolute;
     padding: 0.5rem;
     z-index: 1000;
+    min-width: 230px;
+
 }
 
 .azioni_messaggio span{
     display: block;
-    font-size: 1.2rem;
+    font-size: 1.2rem; 
     margin: 0.5rem;
     padding-bottom: 0.3rem;
     border-bottom: 1px solid lightgray;
@@ -277,11 +327,15 @@ color: #B1B1B1;
     top: 30px;
 }
 .info_left{
-    left: 120px;
+        top: 30px;
+    right: 0;
+    transform: translateX(83%);
+
 }
 
 .sent{
     height: 100%;
+    min-width: 130px;
     background-color: #D5F9BA ;
     position: absolute;
     right: 0;
@@ -289,15 +343,15 @@ color: #B1B1B1;
     display: flex;
 }
 
-.sent span:first-child,
-.received span:first-child{
+.sent>  span:first-child,
+.received> span:first-child{
     font-size: 1.2rem;
     align-self: center;
     justify-self: center;
     padding: 1rem 1rem 1.5rem 1rem;
 }
-.sent span:nth-child(2),
-.received span:nth-child(2){
+.sent > span:nth-child(2),
+.received > span:nth-child(2){
     position: absolute;
     right: 5px;
     bottom: 0;
@@ -307,11 +361,22 @@ color: #B1B1B1;
 
 .received{
     height: 100%;
+    min-width: 130px;
     background-color: #FFFFFF ;
     position: absolute;
     left: 0;
     border-radius: 10px;
     display: flex;
+}
+
+.tutte_info_messaggio{
+    background-color: coral;
+    z-index: 1200;
+    position: absolute;
+    height: 500px;
+    width: 643px;
+    right: 170px;
+    
 }
 
 
