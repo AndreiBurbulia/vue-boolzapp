@@ -1,0 +1,457 @@
+
+/*************** Common ***************/
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+
+/*************** Main ***************/
+
+#app{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(to bottom, #009688 0px, #009688 148px, #d3d3d3 148px, #d3d3d3 100%);
+}
+
+.container{
+    width: 80%;
+    height: 90%;
+    display: flex;
+    min-width: 1440px;
+    position: relative;
+}
+
+
+/*************** Navigazione ***************/
+
+.navigazione{
+    width: 30%;
+    height: 100%;
+
+}
+
+/********** Utente **********/
+
+.utente, .notifiche{
+    height: 12%;
+    width: 100%;
+
+}
+.utente{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #EAEAEA;
+}
+.utente_left{
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+.utente_left img{
+    height: 80%;
+    border-radius: 50%;
+    padding: 0 1rem;
+}
+.utente_left span{
+    font-size: 1.5rem;
+}
+
+.utente_right i{
+    font-size: 2rem;
+    margin: 0 0.8rem;
+    color: #B1B1B1;
+}
+
+
+/********** Notifiche **********/
+.notifiche{
+    display: flex;
+    align-items: center;
+    /* justify-content: space-between; */
+    background-color: #8EDAFC;
+}
+.icon_not{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+    margin-left: 2rem;
+}
+
+.icon_not i{
+    font-size: 1.8rem;
+    color: #8EDAFC;
+}
+
+.text_not{
+    display: flex;
+    flex-direction: column;
+    padding-left: 1rem;
+}
+
+.text_not span{
+    font-size: 1.4rem;
+
+}
+
+/********** Ricerca **********/
+
+.ricerca{
+    height: 6%;
+    width: 100%;
+    background-color: #FAFAFA;
+    padding: 5px;
+}
+
+.ricerca_box{
+    height: 100%;
+    width: 100%;
+    background-color: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.ricerca_box i{
+    width: 9%;
+    text-align: center;
+    color: #B6B9BB;
+}
+
+.ricerca_box input{
+    height: 100%;
+    width: 90%;
+    border: none;
+    outline: none;
+    font-size: 1.2rem;
+}
+
+
+
+
+
+/********** Lista Utenti **********/
+
+.lista_utenti{
+    height: 70%;
+    width: 100%;
+    background-color: white;
+    overflow-y: auto;
+}
+.linea_utente{
+    height: 90px;
+    padding: 0.5rem 1rem;
+    display: flex;
+    position: relative;
+    border-bottom: 1px solid lightgrey;
+}
+.linea_utente:hover{
+    background-color: #d3d3d35d;
+}
+
+
+
+.linea_utente img{
+    height: 100%;
+    border-radius: 50%;
+    padding: 0 1rem;
+}
+.linea_utente_text{
+    padding-top: 0.5rem;
+}
+.linea_utente_text span{
+    display: block;
+}
+.linea_utente_text span:first-child{
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+.linea_utente_text span:nth-child(2){
+    color: #B6B9C4;
+}
+
+.linea_utente > span{
+    font-size: 1rem;
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    color: #B6B9C4;
+}
+
+
+
+
+
+/*************** Chat ***************/
+.intro{
+    width: 70%;
+    height: 100%;
+    background-color: rgb(106, 170, 235);
+    padding: 3rem;
+    
+}
+
+.videochiamata{
+    width: 1400px;
+    height: 800px;
+    position: absolute;
+    background-color: #D5F9BA;
+    right: 70px;
+    top: 20px;
+    /* display: flex; */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+.videochiamata i{
+    font-size: 2rem;
+    padding: 1rem;
+    align-self: flex-end;
+    color: red;
+}
+.videochiamata video{
+    /* z-index: 10000; */
+    /* margin-top: -2rem; */
+    width: 90%;
+
+}
+.videochiamata video:hover{
+    display: block;
+}
+
+.chat{
+    width: 70%;
+    height: 100%;
+    background-color: lightslategray;
+
+}
+
+/********** Utente chat **********/
+
+.utente_chat, .box_testo{
+    height: 12%;
+    width: 100%;
+}
+.utente_chat{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #EAEAEA;
+}
+.utente_chat img{
+    height: 80%;
+    border-radius: 50%;
+    padding: 0 1rem;
+}
+
+.chat_dettagli{
+    text-align: left;
+    width: 65%;
+}
+.chat_dettagli span{
+    display: block;
+}
+.chat_dettagli span:first-child{
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+.chat_dettagli span:nth-child(2){
+    font-size: 0.9rem;
+}
+.icone_utente_chat{
+    margin-right: 1rem;
+}
+.icone_utente_chat i{
+font-size: 2rem;
+padding: 0 0.5rem;
+color: #B1B1B1;
+}
+
+/********** Chat **********/
+
+.messaggi_chat{
+    width: 100%;
+    height: 76%;
+    background-image: url(../img/mine.jpg);
+    padding: 2rem;
+    overflow-y: auto;
+    position: relative;
+}
+
+.tutte_info{
+    background-color: rgba(0, 0, 0, 0.6);
+    height: 90%;
+    width: 94%;
+    margin: auto;
+    position: absolute;
+    z-index: 10;
+    display: flex;
+    padding: 2rem;
+}
+.tutte_info > div{
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 2rem;
+    margin: 1rem 0;
+    background-color: rgba(214, 212, 212, 0.8);
+    border-radius: 30px;
+
+
+}
+.tutte_info h4{
+    font-size: 1.2rem;
+    padding-bottom: 1rem;
+    display: inline-block;
+}
+.tutte_info p{
+    padding-left: 3rem;
+}
+
+.tutte_info > i:first-child{
+        right: 15px;
+    top: 10px;
+    font-size: 2rem;
+    position: absolute;
+    color: red;
+}
+.tutte_info > div>i{
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+
+
+
+
+
+.box_mesaggio{
+    height: 100px;
+    position: relative;
+    margin: 1rem 0;
+   
+}
+.box_mesaggio i{
+    font-size: 1.3rem;
+    padding: 0.5rem 0.5rem 0 0;
+    position: absolute;
+    right: 0;
+}
+
+audio::-webkit-media-controls-panel, video::-webkit-media-controls-panel {
+    background-color: #D5F9BA;
+}
+.azioni_messaggio{
+    background-color: white;
+    position: absolute;
+    padding: 0.5rem;
+    z-index: 1000;
+    min-width: 230px;
+
+}
+
+.azioni_messaggio span{
+    display: block;
+    font-size: 1.2rem; 
+    margin: 0.5rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid lightgray;
+}
+.azioni_messaggio span:hover{
+    cursor: pointer;
+}
+
+
+.info_right{
+    right: 10px;
+    top: 30px;
+}
+.info_left{
+        top: 30px;
+    right: 0;
+    transform: translateX(83%);
+
+}
+
+.sent{
+    height: 100%;
+    min-width: 130px;
+    background-color: #D5F9BA ;
+    position: absolute;
+    right: 0;
+    border-radius: 10px;
+    display: flex;
+}
+
+.sent>  span:first-child,
+.received> span:first-child{
+    font-size: 1.2rem;
+    align-self: center;
+    justify-self: center;
+    padding: 1rem 1rem 1.5rem 1rem;
+}
+.sent > span:nth-child(2),
+.received > span:nth-child(2){
+    position: absolute;
+    right: 5px;
+    bottom: 0;
+    font-size: 0.7rem;
+    padding: 0.3rem;
+}
+
+.received{
+    height: 100%;
+    min-width: 130px;
+    background-color: #FFFFFF ;
+    position: absolute;
+    left: 0;
+    border-radius: 10px;
+    display: flex;
+}
+
+.tutte_info_messaggio{
+    background-color: coral;
+    z-index: 1200;
+    position: absolute;
+    height: 500px;
+    width: 643px;
+    right: 170px;
+    
+}
+
+
+
+
+
+/********** Box input text**********/
+.box_testo{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #F3EEEA;
+}
+
+.box_testo i{
+    font-size: 3rem;
+    color: #6B7376;
+}
+
+.box_testo input {
+    width: 85%;
+    height: 70% ;
+    border-radius: 10px;
+    border: none;
+    outline: none; 
+    font-size: 2rem;
+    padding: 0.5rem;
+}
+

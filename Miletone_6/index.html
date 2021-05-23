@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boolzapp</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+    <!-- CSS -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body>
+    <div id="app">
+        <div class="container">
+            <div class="navigazione">
+
+                <!-- Sezione Utente -->
+                <div class="utente">
+                    <div class="utente_left">
+                        <img :src="img_utente" alt="">
+                        <span>Nome Utente</span>
+                    </div>
+                    <div class="utente_right">
+                        <i class="fas fa-circle-notch"></i>
+                        <i class="fas fa-comment-alt"></i>
+                        <i class="fas fa-ellipsis-v"></i>
+                    </div>
+
+
+                </div>
+
+                <!-- Sezione Notifiche -->
+                <div class="notifiche">
+                    <div class="icon_not">
+                        <i class="fas fa-bell-slash"></i>
+                    </div>
+                    <div class="text_not">
+                        <span>Ricevi notifiche di nuovi messaggi</span>
+                        <a href="#">Attiva notifiche desktop</a>
+                    </div>
+                </div>
+
+                <!-- Sezione Ricerca -->
+                <div class="ricerca">
+                    <div class="ricerca_box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" v-model="search" placeholder="Cerca o inizia una nuova chat">
+                    </div>
+                </div>
+
+                <!-- Sezione Lista Utenti -->
+                <div class="lista_utenti">
+                    <!--questa sezione stampa la lista degli utenti in modo fisso quindi se vado a cercare tra i contatti
+                    non succede nulla 
+                        
+                        <div class="linea_utente" v-for="(utente, index) in contacts" @click="counter = index">
+                        <img :src="'./assets/img/avatar'+ utente.avatar +'.jpg'" alt="">
+                        <div class="linea_utente_text">
+                            <span>{{ utente.name }}</span>
+                            <span>{{contacts[index].messages[contacts[index].messages.length-1].text}}</span>
+                        </div>
+                        <span>data</span>
+                    </div> -->
+
+
+                    <!-- Con questa parte avdo a stampare la lista "filteredList" che se non ho inserito alcun vore nella casella di ricerca
+                    mi stampa tutta la lista invece se vado ad inserire un valore nel input mi va a vedere quali elementi della lista hanno quel avlore
+                    e mi va a stampare solo quei elementi -->
+                    <div class="linea_utente" v-for="(utente, index) in filteredList" @click="counter = index">
+                        <img :src="'./assets/img/avatar'+ utente.avatar +'.jpg'" alt="">
+                        <div class="linea_utente_text">
+                            <span>{{ utente.name }}</span>
+                            <span>{{contacts[index].messages[contacts[index].messages.length-1].text}}</span>
+                        </div>
+                        <span>{{contacts[index].messages[contacts[index].messages.length-1].date}}</span>
+                    </div>
+
+
+                </div>
+            </div>
+
+
+            <div class="videochiamata" :style="{display: videochiamata}">
+                <i class="fas fa-times" @click="fermaVideochiamata"></i>
+                <div>
+
+                    <video controls></video>
+                </div>
+                <p>Click "PLAY" to start the call</p>
+            </div>
+
+
+
+            <div class="intro" v-if="counter === null">
+                <h3>Milestone 6</h3>
+                <ol>
+                    <li>Aggiunto informazioni riguardanti ogni messaggio</li>
+                    <li>Aggiunta posibilità di eliminare ogni singolo messaggio</li>
+                    <li>Aggiunti i messaggi vocali </li>
+                    <li>Aggiunta "Videochiamata" avvia una finestra con il video della telecamera e la mostra sullo schermo</li>
+                </ol>
+            </div>
+            <!-- Sezione Chat -->
+            <div class="chat" v-else>
+
+
+
+                <!-- dettagli utente chat -->
+                <div class=" utente_chat">
+                    <img :src="'./assets/img/avatar'+ contacts[counter].avatar +'.jpg'" alt="">
+                    <div class="chat_dettagli">
+                        <span>{{ contacts[counter].name }}</span>
+                        <span>Ultimo accesso oggi alle {{contacts[counter].messages[contacts[counter].messages.length-1].date }}</span>
+                    </div>
+                    <div class="icone_utente_chat">
+                        <i class="fas fa-video" @click="avviaVideochiamata"></i>
+                        <i class="fas fa-search"></i>
+                        <i class="fas fa-paperclip"></i>
+                        <i class="fas fa-ellipsis-v"></i>
+                    </div>
+                </div>
+
+
+                <!-- Box chat -->
+                <div class="messaggi_chat">
+                    <div class="tutte_info" :style="{display: visibilityInfoMessage}">
+                        <i class="fas fa-times" @click="closeInfoMessage"></i>
+                        <div>
+                            <i class="fas fa-comment"></i>
+                            <h4>Messaggio:</h4>
+                            <p>{{contacts[counter].messages[indexMesagge].text}}</p>
+                        </div>
+                        <div>
+                            <i class="fas fa-user-alt"></i>
+                            <h4>Spedito da:</h4>
+                            <p>{{contacts[counter].name}}</p>
+                        </div>
+                        <div>
+                            <i class="fas fa-calendar-alt"></i>
+                            <h4>Data e ora:</h4>
+                            <p>{{contacts[counter].messages[indexMesagge].date}}</p>
+                        </div>
+                        <div>
+                            <i class="fas fa-satellite-dish"></i>
+                            <h4>Stato messaggio:</h4>
+                            <p>{{contacts[counter].messages[indexMesagge].status}}</p>
+                        </div>
+                    </div>
+
+                    <div class="box_mesaggio" v-for="(elemento, index) in contacts[counter].messages">
+                        <div :class="elemento.status">
+                            <span :id="contacts[counter].name + index">{{ elemento.text}}</span>
+                            <span>{{elemento.date}}</span>
+                            <i class="fas fa-chevron-down" @click="showInfo(index)"></i>
+                            <div class="azioni_messaggio" :style="{display: elemento.visibility}" :class="(elemento.status === 'sent' ? 'info_right' : 'info_left')">
+                                <span @click="removeMessage(index)">Elimina messaggio</span>
+                                <span @click="infoMessage(index)">Info messaggio</span>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <!-- Box input testo -->
+                <div class="box_testo">
+                    <i class="far fa-smile"></i>
+                    <input type="text" @keyup.enter="sendMessage" v-model="message">
+                    <i class="fas fa-microphone" @click="messaggioVocale"></i>
+                </div>
+            </div>
+        </div>
+
+
+
+
+    </div>
+
+
+    <!-- Day.js -->
+    <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+    <!-- Vue.js -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <!-- Main js -->
+    <script src="./assets/js/main.js"></script>
+</body>
+
+</html>
