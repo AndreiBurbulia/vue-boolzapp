@@ -217,14 +217,12 @@ const app = new Vue({
     },
     methods: {
         sendMessage() {
-            // console.log();
             newMessage = {};
             newMessage.text = this.message;
             newMessage.date = dayjs().format("DD/MM/YYYY  HH:mm:ss");
             newMessage.status = "sent";
             newMessage.visibility = "none";
 
-            //console.log(newMessage);
             this.contacts[this.counter].messages.push(newMessage);
             this.message = "";
 
@@ -236,7 +234,6 @@ const app = new Vue({
                     visibility: "none"
                 };
                 this.contacts[this.counter].messages.push(automaticMessage);
-
             }, 2000)
         },
 
@@ -247,7 +244,6 @@ const app = new Vue({
                 this.contacts[this.counter].messages.splice(index, 1);
             } else {
                 this.contacts[this.counter].messages[index].visibility = "none";
-
             }
         },
 
@@ -263,8 +259,8 @@ const app = new Vue({
             this.indexMesagge = index;
             this.visibilityInfoMessage = "block";
             this.contacts[this.counter].messages[index].visibility = "none";
-
         },
+
         closeInfoMessage() {
             this.visibilityInfoMessage = "none";
         },
@@ -289,7 +285,6 @@ const app = new Vue({
 
                     mediaRecorder.addEventListener("dataavailable", e => {
                         chuck.push(e.data)
-
                     })
 
                     mediaRecorder.addEventListener("stop", e => {
@@ -297,16 +292,11 @@ const app = new Vue({
                         audio_url = URL.createObjectURL(blob)
                         audio = new Audio(audio_url)
                         audio.setAttribute("controls", 1)
-                        //ok.appendChild(audio)
                         let selezione = this.contacts[this.counter].name
                         let selezioneNumero = (this.contacts[this.counter].messages.length - 1).toString()
                         console.log(selezione + selezioneNumero);
-                        console.log(audio);
-                        //console.log());
-
+                        //console.log(audio);
                         document.getElementById(selezione + selezioneNumero).appendChild(audio);
-
-
                     })
 
                 })
@@ -319,8 +309,27 @@ const app = new Vue({
         },
 
         avviaVideochiamata() {
-            this.videochiamata = "flex"
+            this.videochiamata = "flex";
+            let constraintObj = {
+                audio: false,
+                video: {
+                    facingMode: "user",
+                    with: { min: 640, ideal: 1280, max: 1920 },
+                    height: { min: 480, ideal: 720, max: 1080 }
+                }
+            }
+
+            navigator.mediaDevices.getUserMedia(constraintObj).then(function (mediaStreamObj) {
+                let video = document.querySelector("video");
+                if ("srcObject" in video) {
+                    video.srcObject = mediaStreamObj;
+                } else {
+                    video.src = window.URL.createObjectURL(mediaStreamObj)
+                }
+            })
+
         },
+
         fermaVideochiamata() {
             this.videochiamata = "none"
         },
@@ -344,21 +353,3 @@ const app = new Vue({
     }
 })
 
-let constraintObj = {
-    audio: false,
-    video: {
-        facingMode: "user",
-        with: { min: 640, ideal: 1280, max: 1920 },
-        height: { min: 480, ideal: 720, max: 1080 }
-    }
-}
-
-
-navigator.mediaDevices.getUserMedia(constraintObj).then(function (mediaStreamObj) {
-    let video = document.querySelector("video");
-    if ("srcObject" in video) {
-        video.srcObject = mediaStreamObj;
-    } else {
-        video.src = window.URL.createObjectURL(mediaStreamObj)
-    }
-})

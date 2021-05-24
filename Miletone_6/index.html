@@ -74,7 +74,7 @@
                     <!-- Con questa parte avdo a stampare la lista "filteredList" che se non ho inserito alcun vore nella casella di ricerca
                     mi stampa tutta la lista invece se vado ad inserire un valore nel input mi va a vedere quali elementi della lista hanno quel avlore
                     e mi va a stampare solo quei elementi -->
-                    <div class="linea_utente" v-for="(utente, index) in filteredList" @click="counter = index">
+                    <div class="linea_utente" v-for="(utente, index) in filteredList" @click="counter = index" :class="counter === index ? 'active' : ''">
                         <img :src="'./assets/img/avatar'+ utente.avatar +'.jpg'" alt="">
                         <div class="linea_utente_text">
                             <span>{{ utente.name }}</span>
@@ -102,10 +102,12 @@
             <div class="intro" v-if="counter === null">
                 <h3>Milestone 6</h3>
                 <ol>
+                    <li>Aggiunta home apertura(questa), compare contatto solo dopo averlo selezionato</li>
                     <li>Aggiunto informazioni riguardanti ogni messaggio</li>
                     <li>Aggiunta posibilità di eliminare ogni singolo messaggio</li>
                     <li>Aggiunti i messaggi vocali </li>
                     <li>Aggiunta "Videochiamata" avvia una finestra con il video della telecamera e la mostra sullo schermo</li>
+                    <li>--> Aggiungere contatto attivo</li>
                 </ol>
             </div>
             <!-- Sezione Chat -->
