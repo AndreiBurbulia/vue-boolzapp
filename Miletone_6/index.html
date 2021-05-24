@@ -26,7 +26,7 @@
                 <div class="utente">
                     <div class="utente_left">
                         <img :src="img_utente" alt="">
-                        <span>Nome Utente</span>
+                        <span>Genoveffa</span>
                     </div>
                     <div class="utente_right">
                         <i class="fas fa-circle-notch"></i>
@@ -90,11 +90,8 @@
 
             <div class="videochiamata" :style="{display: videochiamata}">
                 <i class="fas fa-times" @click="fermaVideochiamata"></i>
-                <div>
-
-                    <video controls></video>
-                </div>
-                <p>Click "PLAY" to start the call</p>
+                <div class="video"><video controls></video></div>
+                <p>Click <strong>"PLAY"</strong> to start the call</p>
             </div>
 
 
@@ -102,12 +99,12 @@
             <div class="intro" v-if="counter === null">
                 <h3>Milestone 6</h3>
                 <ol>
-                    <li>Aggiunta home apertura(questa), compare contatto solo dopo averlo selezionato</li>
+                    <li>Aggiunta home apertura(questa),la chat compare solo dopo aver selezionato il contatto</li>
                     <li>Aggiunto informazioni riguardanti ogni messaggio</li>
                     <li>Aggiunta posibilità di eliminare ogni singolo messaggio</li>
                     <li>Aggiunti i messaggi vocali </li>
                     <li>Aggiunta "Videochiamata" avvia una finestra con il video della telecamera e la mostra sullo schermo</li>
-                    <li>--> Aggiungere contatto attivo</li>
+                    <li>Aggiunto contatto attivo</li>
                 </ol>
             </div>
             <!-- Sezione Chat -->
