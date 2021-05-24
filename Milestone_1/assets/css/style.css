@@ -16,6 +16,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    background-image: linear-gradient(to bottom, #009688 0px, #009688 148px, #d3d3d3 148px, #d3d3d3 100%);
+
 }
 
 .container{
